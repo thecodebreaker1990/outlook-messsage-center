@@ -1,21 +1,14 @@
-import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Layout from './components/Layout';
-
-const theme = createTheme({
-  typography: {
-    fontSize: 16 // This sets the base font size to 16px
-    // You can also customize other typography properties here
-  }
-});
+import TheLayout from './components/TheLayout';
+import customTheme from './lib/theme';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      <Layout />
+      <TheLayout>Here goes the main section</TheLayout>
     </ThemeProvider>
   );
 }
