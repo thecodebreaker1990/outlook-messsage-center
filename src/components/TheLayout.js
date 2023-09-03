@@ -9,13 +9,16 @@ function Layout({ children }) {
     <Container maxWidth="100vw" disableGutters={true}>
       <Box
         sx={{
-          height: '100vh',
+          height: '100%',
+          width: '100%',
           background: '#f4f4f4',
           overflow: 'hidden'
         }}
       >
         <TheLayoutNavbar />
-        <Box sx={{ width: '100%', height: '100%', ml: `${navbarWidth}px` }}>
+        <Box
+          sx={{ width: `calc(100% - ${navbarWidth}px)`, height: '100%', ml: `${navbarWidth}px` }}
+        >
           <TheLayoutHeader />
           <Box
             component="main"
