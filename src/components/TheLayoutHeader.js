@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { Button, Avatar } from '@mui/material';
+import { Button, Avatar, Typography } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 
 import { headerHeight } from '../config/constants';
@@ -18,9 +18,9 @@ function LayoutHeader() {
         alignItems: 'center'
       }}
     >
-      <Box component="h1" typography={{ fontWeight: 500 }}>
+      <Typography variant="h1" sx={{ fontWeight: 500, fontSize: '2rem' }}>
         Message Center
-      </Box>
+      </Typography>
       <Button variant="outlined" sx={{ mr: 2, ml: 'auto' }}>
         Go Back To Dashboard
       </Button>
