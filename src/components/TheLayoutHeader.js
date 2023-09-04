@@ -1,6 +1,5 @@
 import { Box } from '@mui/system';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
+import { Button, Avatar } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 
 import { headerHeight } from '../config/constants';

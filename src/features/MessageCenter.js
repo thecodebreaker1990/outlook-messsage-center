@@ -1,6 +1,15 @@
+import React from 'react';
 import { Box } from '@mui/system';
+import MessageCenterCardItem from './MessageCenterCardItem';
 
 function MessageCenter() {
+  const cardData = {
+    image: 'https://example.com/card-image.jpg',
+    name: 'John Doe',
+    date: 'September 3, 2023',
+    title: 'Card Title',
+    description: 'This is the card description.'
+  };
   return (
     <Box
       sx={{
@@ -17,14 +26,14 @@ function MessageCenter() {
           height: '100%',
           overflowY: 'auto',
           backgroundColor: '#fff',
-          borderRight: '1px solid rgba(224, 224, 224, 0.7)'
+          borderRight: '1px solid #ccc'
         }}
       >
-        This is List Section
+        <MessageCenterCardItem {...cardData} />
+        <MessageCenterCardItem {...cardData} />
       </Box>
       <Box sx={{ flexGrow: 1 }}>This is Details Section</Box>
     </Box>
   );
 }
-
 export default MessageCenter;
