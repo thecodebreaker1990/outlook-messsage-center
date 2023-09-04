@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/system';
 import MessageCenterCardItem from './MessageCenterCardItem';
+import MessageCenterCardDetails from './MessageCenterCardDetails';
 
 function MessageCenter() {
   const cardData = {
@@ -32,7 +33,9 @@ function MessageCenter() {
         <MessageCenterCardItem {...cardData} />
         <MessageCenterCardItem {...cardData} />
       </Box>
-      <Box sx={{ flexGrow: 1 }}>This is Details Section</Box>
+      <Box sx={{ flexGrow: 1, p: 2 }}>
+        <MessageCenterCardDetails />
+      </Box>
     </Box>
   );
 }
