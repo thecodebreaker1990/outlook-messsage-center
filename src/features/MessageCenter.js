@@ -62,7 +62,7 @@ function MessageCenter() {
           <MessageCenterCardItem {...cardData} />
         </Box>
       </Box>
-      <Box sx={{ flexGrow: 1, p: 2 }}>
+      <Box sx={{ flexGrow: 1, minWidth: 0, maxWidth: '75%', p: 2 }}>
         <MessageCenterCardDetails />
       </Box>
     </Box>
