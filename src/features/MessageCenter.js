@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import MessageCenterCardItem from './MessageCenterCardItem';
 import MessageCenterCardDetails from './MessageCenterCardDetails';
 
@@ -23,6 +25,7 @@ function MessageCenter() {
     >
       <Box
         sx={{
+          position: 'relative',
           width: '25%',
           height: '100%',
           overflowY: 'auto',
@@ -30,8 +33,34 @@ function MessageCenter() {
           borderRight: '1px solid #ccc'
         }}
       >
-        <MessageCenterCardItem {...cardData} />
-        <MessageCenterCardItem {...cardData} />
+        <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
+          <RefreshIcon />
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
+            22 de Junio
+          </Typography>
+          <MessageCenterCardItem {...cardData} isSelected={true} />
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
+            22 de Junio
+          </Typography>
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
+            22 de Junio
+          </Typography>
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+          <MessageCenterCardItem {...cardData} />
+        </Box>
       </Box>
       <Box sx={{ flexGrow: 1, p: 2 }}>
         <MessageCenterCardDetails />
