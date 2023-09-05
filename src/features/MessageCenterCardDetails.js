@@ -1,4 +1,4 @@
-import { Box, Typography, Avatar } from '@mui/material';
+import { Box, Button, Typography, Avatar } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 
 function MessageCenterCardDetails() {
@@ -17,23 +17,30 @@ function MessageCenterCardDetails() {
           Hoy at 1:33pm
         </Typography>
       </Box>
+      <Box sx={{ display: 'flex', pl: '10', border: '1px solid #ccc' }}>
+        <img
+          src="/assets/person/ad.jpg"
+          alt="description"
+          style={{ width: '100px', height: 'auto', marginRight: '16px' }}
+        />
+        <Box>
+          <Typography variant="body1">Medellin, 23 de Junio 2021</Typography>
+          <Typography variant="body1">Propiedad QWY874</Typography>
+          <Typography variant="body2" sx={{ my: 2 }}>
+            Reciban un cordial saludo, muchas gracias por contactamos. De acuerdo con la
+            conversacioN, tenemos el gusto de presentar este documento GRUPO ZLIPERS.
+          </Typography>
+        </Box>
 
-      {/* <Typography variant="body1">Medellin, 23 de Junio 2021</Typography>
-      <Typography variant="body1">Propiedad QWY874</Typography> */}
-
-      {/* <Typography variant="body2" sx={{ my: 2 }}>
-        Reciban un cordial saludo, muchas gracias por contactamos. De acuerdo con la conversacioN,
-        tenemos el gusto de presentar este documento GRUPO ZLIPERS.
-      </Typography>
-
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar variant="rounded">T</Avatar>
-        <Typography sx={{ ml: 1 }}>Firmar EEP</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', mt: '10' }}>
+          <Button variant="contained" color="primary">
+            Firmar EEP
+          </Button>
+          <Typography variant="body2" sx={{ ml: 2 }}>
+            Cualquier inquietud comunicarse a support@zlipers.com
+          </Typography>
+        </Box>
       </Box>
-
-      <Typography variant="body2" sx={{ mt: 2 }}>
-        Cualquier inquietud comunicarse a support@zlipers.com
-      </Typography> */}
     </Box>
   );
 }
