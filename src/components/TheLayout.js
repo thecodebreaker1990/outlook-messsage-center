@@ -2,7 +2,7 @@ import { Box, Container } from '@mui/system';
 
 import TheLayoutHeader from './TheLayoutHeader';
 import TheLayoutNavbar from './TheLayoutNavbar';
-import { headerHeight, navbarWidth } from '../config/constants';
+import { headerHeight, navbarWidth, backgroundColor } from '../config/constants';
 
 function Layout({ children }) {
   return (
@@ -11,7 +11,7 @@ function Layout({ children }) {
         sx={{
           height: '100%',
           width: '100%',
-          background: '#f4f4f4',
+          background: backgroundColor,
           overflow: 'hidden'
         }}
       >
