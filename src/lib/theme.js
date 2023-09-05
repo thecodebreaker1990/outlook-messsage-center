@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 import Roboto from '../fonts/Roboto/Roboto-Regular.ttf';
 
-const theme = createTheme({
+let theme = createTheme({
   typography: {
-    fontSize: 10, // This sets the base font size to 14px
+    fontSize: 14, // This sets the base font size to 10px
     // You can also customize other typography properties here
     fontFamily: 'Roboto, sans-serif'
   },

@@ -1,14 +1,14 @@
 import { backgroundColor } from '../config/constants';
 import { Box } from '@mui/system';
 import { Avatar, Typography } from '@mui/material';
-import { deepPurple } from '@mui/material/colors';
+import { deepPurple, lightBlue } from '@mui/material/colors';
 
-function MessageCenterCardItem() {
+function MessageCenterCardItem({ isSelected = false }) {
   return (
     <Box
       sx={{
         position: 'relative',
-        backgroundColor,
+        backgroundColor: isSelected ? lightBlue[100] : backgroundColor,
         borderBottom: '1px solid rgba(224, 224, 224, 0.7)',
         p: 1,
         pl: 4.5
