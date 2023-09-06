@@ -40,7 +40,7 @@ function MessageCenter() {
           <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
             22 de Junio
           </Typography>
-          <MessageCenterCardItem {...cardData} isSelected={true} />
+          <MessageCenterCardItem {...cardData} isSelected={true} isUnread={true} />
         </Box>
         <Box sx={{ my: 1 }}>
           <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
@@ -62,7 +62,7 @@ function MessageCenter() {
           <MessageCenterCardItem {...cardData} />
         </Box>
       </Box>
-      <Box sx={{ flexGrow: 1, minWidth: 0, maxWidth: '75%', p: 2 }}>
+      <Box sx={{ flexGrow: 1, minWidth: 0, maxWidth: '75%', p: 2, overflowY: 'auto' }}>
         <MessageCenterCardDetails />
       </Box>
     </Box>

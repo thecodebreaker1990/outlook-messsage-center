@@ -38,9 +38,7 @@ function TheLayoutNavbar() {
         </Badge>
       </Button>
       <Button variant="text" sx={{ width: '100%', my: 1.5 }}>
-        <Badge badgeContent={10} color="error">
-          <CameraAltIcon sx={{ color: '#fff' }} />
-        </Badge>
+        <CameraAltIcon sx={{ color: '#fff' }} />
       </Button>
       <Button variant="text" sx={{ width: '100%', my: 1.5 }}>
         <CloudUploadIcon sx={{ color: '#fff' }} />

@@ -1,9 +1,9 @@
 import { backgroundColor } from '../config/constants';
 import { Box } from '@mui/system';
 import { Avatar, Typography } from '@mui/material';
-import { deepPurple, lightBlue } from '@mui/material/colors';
+import { deepPurple, lightBlue, green, red } from '@mui/material/colors';
 
-function MessageCenterCardItem({ isSelected = false }) {
+function MessageCenterCardItem({ isSelected = false, isUnread = false }) {
   return (
     <Box
       sx={{
@@ -14,8 +14,19 @@ function MessageCenterCardItem({ isSelected = false }) {
         pl: 4.5
       }}
     >
+      {/* Status bar */}
+      <Box
+        sx={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          height: '100%',
+          width: '5px',
+          backgroundColor: isUnread ? red[500] : green[500]
+        }}
+      />
       <Box sx={{ position: 'absolute', left: '10px', top: '10px' }}>
-        <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>OS</Avatar>
+        <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
       </Box>
       <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
         <Typography variant="body2" color="text.primary">
