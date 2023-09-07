@@ -19,7 +19,7 @@ function MessageCenterCardDetails() {
     <Fragment>
       <Box
         sx={{
-          height: '100%',
+          'min-height': '100%',
           backgroundColor: '#fff',
           border: '1px solid #ccc',
           borderRadius: '10px',

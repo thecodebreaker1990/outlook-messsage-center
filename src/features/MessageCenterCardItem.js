@@ -3,7 +3,14 @@ import { Box } from '@mui/system';
 import { Avatar, Typography } from '@mui/material';
 import { deepPurple, lightBlue, green, red } from '@mui/material/colors';
 
-function MessageCenterCardItem({ isSelected = false, isUnread = false }) {
+function MessageCenterCardItem({
+  reviewer,
+  date,
+  message,
+  desc,
+  isSelected = false,
+  isUnread = false
+}) {
   return (
     <Box
       sx={{
@@ -30,17 +37,17 @@ function MessageCenterCardItem({ isSelected = false, isUnread = false }) {
       </Box>
       <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
         <Typography variant="body2" color="text.primary">
-          22 de Junio
+          {date}
         </Typography>
       </Box>
       <Typography variant="body1" color="text.primary" fontWeight="bold">
-        John Doe
+        {reviewer}
       </Typography>
       <Typography variant="body1" color="text.primary" fontWeight="bold">
-        Lorem ipsum dolor sit amet ac tempor
+        {message}
       </Typography>
       <Typography variant="body1" color="text.primary">
-        Nullam maximus ac ante ac tempor. Integer ac...
+        {desc}
       </Typography>
     </Box>
   );
