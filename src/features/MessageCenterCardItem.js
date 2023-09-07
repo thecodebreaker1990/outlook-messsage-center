@@ -35,18 +35,29 @@ function MessageCenterCardItem({
       <Box sx={{ position: 'absolute', left: '10px', top: '10px' }}>
         <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
       </Box>
-      <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
+
+      {/* container for reviewer and date */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        <Box sx={{ flex: '1 0 50%', minWidth: 0 }}>
+          <Typography
+            className="mc-text-overflow"
+            variant="body1"
+            color="text.primary"
+            fontWeight="bold"
+            fontSize="small"
+          >
+            {reviewer}
+          </Typography>
+        </Box>
         <Typography variant="body2" color="text.primary">
           {date}
         </Typography>
       </Box>
-      <Typography variant="body1" color="text.primary" fontWeight="bold">
-        {reviewer}
-      </Typography>
+
       <Typography variant="body1" color="text.primary" fontWeight="bold">
         {message}
       </Typography>
-      <Typography variant="body1" color="text.primary">
+      <Typography className="mc-text-overflow" variant="body1" color="text.primary">
         {desc}
       </Typography>
     </Box>
