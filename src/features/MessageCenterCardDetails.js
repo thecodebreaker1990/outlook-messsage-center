@@ -22,7 +22,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
     <Fragment>
       <Box
         sx={{
-          'min-height': '100%',
+          minHeight: '100%',
           backgroundColor: '#fff',
           border: '1px solid #ccc',
           borderRadius: '10px',
@@ -46,10 +46,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
           <Box sx={{ flex: 1 }}>
             <Typography variant="body1">{selectedMessage.desc_en}</Typography>
 
-            <Typography variant="body1">{selectedMessage.desc_en}</Typography>
-
             <Typography variant="body2" sx={{ my: 1 }}>
-              {selectedMessage.desc_en}
               <span style={{ fontWeight: 'bold' }}>GRUPO ZLIPERS.</span>
             </Typography>
 

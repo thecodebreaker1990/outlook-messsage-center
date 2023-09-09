@@ -8,18 +8,27 @@ function MessageCenterCardItem({
   date,
   message,
   desc,
+  onSelect,
   isSelected = false,
   isUnread = false
 }) {
   return (
     <Box
       sx={{
+        cursor: 'pointer',
         position: 'relative',
         backgroundColor: isSelected ? lightBlue[100] : backgroundColor,
         borderBottom: '1px solid rgba(224, 224, 224, 0.7)',
         p: 1,
-        pl: 4.5
+        pl: 4.5,
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          backgroundColor: isSelected ? lightBlue[50] : 'rgba(200, 200, 200, 0.2)',
+          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+          zIndex: 1
+        }
       }}
+      onClick={onSelect}
     >
       {/* Status bar */}
       <Box
