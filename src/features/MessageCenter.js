@@ -66,11 +66,6 @@ function MessageCenter() {
     return newMessages;
   };
 
-  const onSelectedMessage = (messageID) => {
-    const message = messages.find((msg) => msg.record_id === messageID);
-    setSelectedMessage(message);
-  };
-
   const groupedMessages = groupRecordsByDate(messages, 'date_of_reminder');
 
   return (
@@ -110,7 +105,7 @@ function MessageCenter() {
                   desc={msg.desc_es}
                   date={msg.date_of_completion}
                   isSelected={selectedMessage && selectedMessage.record_id === msg.record_id}
-                  onSelect={() => onSelectedMessage(msg.record_id)}
+                  onSelect={() => setSelectedMessage(msg)}
                 />
               ))}
             </Box>
