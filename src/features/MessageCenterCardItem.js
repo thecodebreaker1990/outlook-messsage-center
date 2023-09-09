@@ -3,7 +3,14 @@ import { Box } from '@mui/system';
 import { Avatar, Typography } from '@mui/material';
 import { deepPurple, lightBlue, green, red } from '@mui/material/colors';
 
-function MessageCenterCardItem({ isSelected = false, isUnread = false }) {
+function MessageCenterCardItem({
+  reviewer,
+  date,
+  message,
+  desc,
+  isSelected = false,
+  isUnread = false
+}) {
   return (
     <Box
       sx={{
@@ -28,19 +35,30 @@ function MessageCenterCardItem({ isSelected = false, isUnread = false }) {
       <Box sx={{ position: 'absolute', left: '10px', top: '10px' }}>
         <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
       </Box>
-      <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
+
+      {/* container for reviewer and date */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        <Box sx={{ flex: '1 0 50%', minWidth: 0 }}>
+          <Typography
+            className="mc-text-overflow"
+            variant="body1"
+            color="text.primary"
+            fontWeight="bold"
+            fontSize="small"
+          >
+            {reviewer}
+          </Typography>
+        </Box>
         <Typography variant="body2" color="text.primary">
-          22 de Junio
+          {date}
         </Typography>
       </Box>
+
       <Typography variant="body1" color="text.primary" fontWeight="bold">
-        John Doe
+        {message}
       </Typography>
-      <Typography variant="body1" color="text.primary" fontWeight="bold">
-        Lorem ipsum dolor sit amet ac tempor
-      </Typography>
-      <Typography variant="body1" color="text.primary">
-        Nullam maximus ac ante ac tempor. Integer ac...
+      <Typography className="mc-text-overflow" variant="body1" color="text.primary">
+        {desc}
       </Typography>
     </Box>
   );
