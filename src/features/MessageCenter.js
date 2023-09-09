@@ -25,38 +25,53 @@ function MessageCenter() {
     }
   ]);
 
-  useEffect(() => {
-    // Generate 20 more mock data objects and update the state
-    const generateMockData = () => {
-      const newMessages = [...messages];
-      for (let i = 1; i <= 20; i++) {
-        newMessages.push({
-          record_id: `${100 + i}`,
-          master_table_name: `epp${i + 1}`,
-          extra_param: {
-            key: `This is extra parameters array for item ${i + 1}`
-          },
-          message_en: `The following PPE have been delivered ${i + 1}`,
-          message_es: `Se han entregado los siguientes EPP ${i + 1}`,
-          desc_en: `Your signature is required, as evidence of the successful delivery of (${
-            i + 3
-          } FAJA)`,
-          desc_es: `Su firma es requerida, como evidencia de la entrega satisfactoria de (${
-            i + 3
-          } FAJA)`,
-          date_of_reminder: `2023-05-${i + 8}`,
-          date_of_completion: `2023-05-${i + 8}`,
-          responsible_person: `07 ALBERTO VILLA ROMERO ${i}`,
-          reviewer_person: `07 ALBERTO VILLA ROMERO ${i}`,
-          status: `${(i % 3) + 1}`
-        });
-      }
-      setMessages(newMessages);
-    };
+  const [selectedMessage, setSelectedMessage] = useState(null);
+  // Function to set a selected message when a card is clicked
+  const handleCardClick = (msg) => {
+    setSelectedMessage(msg);
+  };
 
-    generateMockData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useEffect(
+    () => {
+      // Generate 20 more mock data objects and update the state
+      const generateMockData = () => {
+        const newMessages = [...messages];
+        for (let i = 1; i <= 20; i++) {
+          newMessages.push({
+            record_id: `${100 + i}`,
+            master_table_name: `epp${i + 1}`,
+            extra_param: {
+              key: `This is extra parameters array for item ${i + 1}`
+            },
+            message_en: `The following PPE have been delivered ${i + 1}`,
+            message_es: `Se han entregado los siguientes EPP ${i + 1}`,
+            desc_en: `Your signature is required, as evidence of the successful delivery of (${
+              i + 3
+            } FAJA)`,
+            desc_es: `Su firma es requerida, como evidencia de la entrega satisfactoria de (${
+              i + 3
+            } FAJA)`,
+            date_of_reminder: `2023-05-${i + 8}`,
+            date_of_completion: `2023-05-${i + 8}`,
+            responsible_person: `07 ALBERTO VILLA ROMERO ${i}`,
+            reviewer_person: `07 ALBERTO VILLA ROMERO ${i}`,
+            status: `${(i % 3) + 1}`
+          });
+        }
+        setMessages(newMessages);
+      };
+
+      generateMockData();
+
+      if (messages && messages.length > 0) {
+        setSelectedMessage(messages[0]);
+      }
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },
+    // [],
+    [messages]
+  );
 
   return (
     <Box
@@ -88,11 +103,12 @@ function MessageCenter() {
             message={msg.message_es}
             desc={msg.desc_es}
             date={msg.date_of_completion}
+            onClick={() => handleCardClick(msg)}
           />
         ))}
       </Box>
       <Box sx={{ flexGrow: 1, minWidth: 0, maxWidth: '75%', p: 2, overflowY: 'auto' }}>
-        <MessageCenterCardDetails />
+        <MessageCenterCardDetails selectedMessage={selectedMessage} />
       </Box>
     </Box>
   );
