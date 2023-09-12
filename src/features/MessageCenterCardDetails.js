@@ -2,7 +2,7 @@ import { useState, Fragment } from 'react';
 import { Box, Button, Typography, Avatar } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 
-import FormDialog from '../components/FormDialog';
+import FormDrawer from '../components/FormDrawer';
 
 function MessageCenterCardDetails({ selectedMessage }) {
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -64,7 +64,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
           </Box>
         </Box>
       </Box>
-      <FormDialog open={isDialogOpen} handleClose={handleDialogClose} />
+      <FormDrawer open={isDialogOpen} handleClose={handleDialogClose} />
     </Fragment>
   );
 }
