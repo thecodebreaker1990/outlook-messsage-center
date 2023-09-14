@@ -12,6 +12,7 @@ const InputSelectField = ({ field, value, onChange, error, ...rest }) => {
         label={field.label}
         value={value}
         onChange={(e) => onChange(field.id, e.target.value)}
+        label={field.label}
       >
         {field.options.map((option, index) => (
           <MenuItem key={index} value={option.value}>
