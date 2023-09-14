@@ -9,6 +9,7 @@ const InputSelectField = ({ field, value, onChange, error, ...rest }) => {
       <Select
         labelId={labelID}
         id={field.id}
+        label={field.label}
         value={value}
         onChange={(e) => onChange(field.id, e.target.value)}
       >

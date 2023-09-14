@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Box } from '@mui/material';
 
-import { InputTextField, InputSelectField, InputRadioGroup, InputDateField } from './Input';
+import {
+  InputTextField,
+  InputTextAreaField,
+  InputSelectField,
+  InputRadioGroup,
+  InputDateField,
+  InputSignatureField
+} from './Input';
 
 const fieldComponents = {
   text: InputTextField,
-  select: InputSelectField,
+  textarea: InputTextAreaField,
+  dropdown: InputSelectField,
   radio: InputRadioGroup,
-  date: InputDateField
+  datetime: InputDateField,
+  signature: InputSignatureField
 };
 
 const FormBuilder = ({ inputFields, initialValues }) => {

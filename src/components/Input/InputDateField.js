@@ -7,7 +7,11 @@ const InputDateField = ({ field, value, onChange, error, ...rest }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <BaseFormControl field={field} value={value} error={error} {...rest}>
-        <DatePicker value={value} onChange={(newValue) => onChange(field.id, newValue)} />
+        <DatePicker
+          label={field.label}
+          value={value}
+          onChange={(newValue) => onChange(field.id, newValue)}
+        />
       </BaseFormControl>
     </LocalizationProvider>
   );
