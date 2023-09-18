@@ -120,7 +120,11 @@ function MessageCenter() {
       <Box
         sx={{
           position: 'relative',
-          width: '25%',
+          width: {
+            lg: '35%', // On 1280px width, make it 35%
+            xl: '30%', // On 1366px width, make it 30%
+            xxl: '25%' // On 1920px width and above, make it 25%
+          },
           height: '100%',
           overflowY: 'auto',
           backgroundColor: '#fff',
@@ -146,6 +150,7 @@ function MessageCenter() {
                       desc={msg.desc_es}
                       date={msg.date_of_completion}
                       isSelected={selectedMessage && selectedMessage.record_id === msg.record_id}
+                      isUnread={msg.status < 3}
                       onSelect={() => setSelectedMessage(msg)}
                     />
                   ))}
@@ -160,7 +165,19 @@ function MessageCenter() {
           )}
         </Box>
       </Box>
-      <Box sx={{ flexGrow: 1, minWidth: 0, maxWidth: '75%', p: 2, overflowY: 'auto' }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          minWidth: 0,
+          maxWidth: {
+            lg: '65%', // On 1280px width, make it 65%
+            xl: '70%', // On 1366px width, make it 70%
+            xxl: '75%' // On 1920px width and above, make it 75%
+          },
+          p: 2,
+          overflowY: 'auto'
+        }}
+      >
         {isFetching && selectedMessage === null ? (
           <MessageCenterCardDetailsSkeleton />
         ) : (

@@ -8,6 +8,16 @@ let theme = createTheme({
     fontFamily: 'Roboto, sans-serif'
   },
   spacing: 10,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1366, // Custom breakpoint
+      xxl: 1920 // Custom breakpoint
+    }
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: `
