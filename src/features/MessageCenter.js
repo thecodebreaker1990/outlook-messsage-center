@@ -3,7 +3,9 @@ import { Box } from '@mui/system';
 import { Typography } from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import MessageCenterCardItem from './MessageCenterCardItem';
+import MessageCenterCarditemSkeleton from './MessageCenterCarditemSkeleton';
 import MessageCenterCardDetails from './MessageCenterCardDetails';
+import MessageCenterCardDetailsSkeleton from './MessageCenterCarditemDetailsSkeleton';
 
 import { sortRecrodsByDate, groupRecordsByDate } from '../utils/dateTimeFunctions';
 
