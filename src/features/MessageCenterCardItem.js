@@ -42,7 +42,7 @@ function MessageCenterCardItem({
         }}
       />
       <Box sx={{ position: 'absolute', left: '10px', top: '10px' }}>
-        <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
+        <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>N</Avatar>
       </Box>
 
       {/* container for reviewer and date */}

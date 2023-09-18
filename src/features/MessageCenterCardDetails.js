@@ -171,8 +171,6 @@ function MessageCenterCardDetails({ selectedMessage }) {
     return formFieldInfo;
   });
 
-  console.log(updatedFormFields);
-
   return (
     <Fragment>
       <Box
