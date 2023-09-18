@@ -1,10 +1,26 @@
-import { Box } from '@mui/system';
-import { Button, Avatar, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Button, Avatar, Typography, Menu, MenuItem } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
-
 import { headerHeight } from '../config/constants';
+import { useTranslation } from 'react-i18next';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import i18n from '../lib/i18n';
 
 function LayoutHeader() {
+  const { t } = useTranslation();
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (lang) => {
+    setAnchorEl(null);
+    if (lang) {
+      i18n.changeLanguage(lang);
+    }
+  };
+
   return (
     <Box
       component="header"
@@ -19,11 +35,23 @@ function LayoutHeader() {
       }}
     >
       <Typography variant="h1" sx={{ fontWeight: 500, fontSize: '2rem' }}>
-        Message Center
+        {t('MessageCenter')}
       </Typography>
+
       <Button variant="outlined" sx={{ mr: 2, ml: 'auto' }}>
-        Go Back To Dashboard
+        {t('BackToDashboard')}
       </Button>
+
+      {/* Dropdown for language selection */}
+      <Button variant="contained" onClick={handleClick} sx={{ mr: 2 }}>
+        Language
+        <ExpandMoreIcon />
+      </Button>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => handleClose()}>
+        <MenuItem onClick={() => handleClose('en')}>English</MenuItem>
+        <MenuItem onClick={() => handleClose('es')}>Spanish</MenuItem>
+      </Menu>
+
       <Avatar sx={{ bgcolor: deepPurple[500] }}>OS</Avatar>
     </Box>
   );
