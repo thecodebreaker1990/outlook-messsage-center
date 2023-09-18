@@ -182,7 +182,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
           p: 2
         }}
       >
-        <Typography variant="h4">{selectedMessage.message_en}</Typography>
+        <Typography variant="h4">{selectedMessage.message_es}</Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
           <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
           <Box sx={{ ml: 1 }}>
@@ -197,18 +197,10 @@ function MessageCenterCardDetails({ selectedMessage }) {
         </Box>
         <Box sx={{ display: 'flex', border: '1px solid #ccc', p: 4 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="body1">{selectedMessage.desc_en}</Typography>
+            <Typography variant="body1">{selectedMessage.desc_es}</Typography>
 
             <Typography variant="body2" sx={{ my: 1 }}>
               <span style={{ fontWeight: 'bold' }}>GRUPO ZLIPERS.</span>
-            </Typography>
-
-            <Typography variant="body2" sx={{ my: 1 }}>
-              {selectedMessage.desc_en}
-            </Typography>
-
-            <Typography variant="body2" sx={{ mb: 1 }}>
-              Cualquier inquietud comunicarse a support@zlipers.com
             </Typography>
 
             <Button size="small" variant="contained" onClick={handleDialogOpen}>
