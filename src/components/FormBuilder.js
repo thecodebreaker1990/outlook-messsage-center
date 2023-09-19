@@ -19,7 +19,7 @@ const fieldComponents = {
   signature: InputSignatureField
 };
 
-const FormBuilder = ({ inputFields, initialValues }) => {
+const FormBuilder = ({ inputFields, initialValues, onSubmit }) => {
   const [formValues, setFormValues] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -28,6 +28,10 @@ const FormBuilder = ({ inputFields, initialValues }) => {
     if (field.required && !value.trim()) {
       error = `${field.label} is required`;
     }
+
+    // if (field.required && (!value || (typeof value === 'string' && !value.trim()))) {
+    //   error = `${field.label} is required`;
+    // }
     setErrors({
       ...errors,
       [field.id]: error
@@ -57,9 +61,14 @@ const FormBuilder = ({ inputFields, initialValues }) => {
       if (field.required && !value.trim()) {
         isValid = false;
       }
+
+      // if (field.required && (!value || (typeof value === 'string' && !value.trim()))) {
+      //   isValid = false;
+      // }
     });
     if (isValid) {
-      console.log('Form submitted with values:', formValues);
+      // console.log('Form submitted with values:', formValues);
+      onSubmit(formValues); // call passed onsubmit function
     }
   };
 

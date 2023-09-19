@@ -8,6 +8,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import FormBuilder from './FormBuilder';
 
 export default function FormDrawer({ open, handleClose, inputFields }) {
+  const handleFormSubmit = (values) => {
+    console.log('Form Submitted with values:', values);
+    alert('Form submitted successfully'); //show success message
+    handleClose(); //close drawer
+  };
   return (
     <Drawer anchor="right" open={open} onClose={handleClose}>
       <AppBar position="static">
@@ -21,7 +26,7 @@ export default function FormDrawer({ open, handleClose, inputFields }) {
         </Toolbar>
       </AppBar>
       <div style={{ padding: '16px' }}>
-        <FormBuilder inputFields={inputFields} />
+        <FormBuilder inputFields={inputFields} onSubmit={handleFormSubmit} />
       </div>
     </Drawer>
   );

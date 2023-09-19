@@ -130,7 +130,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         control_order: '4',
         select_master_key: '',
         is_locked: '0',
-        is_require: '1',
+        is_require: '0',
         cpy_is_require: '1',
         validation: '',
         status: 'Active',
