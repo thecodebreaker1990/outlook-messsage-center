@@ -46,7 +46,7 @@ function MessageCenterCardItem({
       </Box>
 
       {/* container for reviewer and date */}
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
         <Box sx={{ flex: '1 0 50%', minWidth: 0 }}>
           <Typography
             className="mc-text-overflow"
@@ -63,7 +63,7 @@ function MessageCenterCardItem({
         </Typography>
       </Box>
 
-      <Typography variant="body1" color="text.primary" fontWeight="bold">
+      <Typography sx={{ mb: 0.5 }} variant="body1" color="text.primary" fontWeight="bold">
         {message}
       </Typography>
       <Typography className="mc-text-overflow" variant="body1" color="text.primary">

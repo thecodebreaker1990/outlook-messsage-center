@@ -43,14 +43,14 @@ function LayoutHeader() {
       </Button>
 
       {/* Dropdown for language selection */}
-      <Button variant="contained" onClick={handleClick} sx={{ mr: 2 }}>
+      {/* <Button variant="contained" onClick={handleClick} sx={{ mr: 2 }}>
         Language
         <ExpandMoreIcon />
       </Button>
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => handleClose()}>
         <MenuItem onClick={() => handleClose('en')}>English</MenuItem>
         <MenuItem onClick={() => handleClose('es')}>Spanish</MenuItem>
-      </Menu>
+      </Menu> */}
 
       <Avatar sx={{ bgcolor: deepPurple[500] }}>OS</Avatar>
     </Box>

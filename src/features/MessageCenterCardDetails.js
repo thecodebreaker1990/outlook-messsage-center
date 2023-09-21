@@ -34,7 +34,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         control_order: '0',
         select_master_key: '',
         is_locked: '0',
-        is_require: '1',
+        is_require: 1,
         cpy_is_require: '1',
         validation: '',
         status: 'Active',
@@ -66,7 +66,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         control_order: '1',
         select_master_key: '',
         is_locked: '0',
-        is_require: '0',
+        is_require: 1,
         cpy_is_require: '0',
         validation: '',
         status: 'Inactive',
@@ -98,7 +98,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         control_order: '2',
         select_master_key: '',
         is_locked: '0',
-        is_require: '1',
+        is_require: 1,
         cpy_is_require: '1',
         validation: '',
         status: 'Active',
@@ -130,7 +130,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         control_order: '4',
         select_master_key: '',
         is_locked: '0',
-        is_require: '0',
+        is_require: 0,
         cpy_is_require: '1',
         validation: '',
         status: 'Active',
@@ -195,7 +195,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
             {selectedMessage.date}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', border: '1px solid #ccc', p: 4 }}>
+        <Box sx={{ display: 'flex', border: '1px solid #ccc', p: 3 }}>
           <Box sx={{ flex: 1 }}>
             <Typography variant="body1">{selectedMessage.desc_es}</Typography>
 
