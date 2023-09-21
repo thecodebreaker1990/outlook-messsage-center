@@ -134,36 +134,35 @@ function MessageCenter() {
         <Box sx={{ position: 'absolute', right: '10px', top: '10px' }}>
           <RefreshIcon />
         </Box>
-        <Box sx={{ my: 2 }}>
-          {!isFetching && messages.length > 0 ? (
-            Array.from(groupedMessages).map(([dateKey, messages], idx) => {
-              return (
-                <Box key={dateKey} sx={idx > 0 ? { my: 1 } : null}>
-                  <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
-                    {dateKey}
-                  </Typography>
-                  {messages.map((msg) => (
-                    <MessageCenterCardItem
-                      key={msg.record_id}
-                      reviewer={msg.reviewer_person}
-                      message={msg.message_es}
-                      desc={msg.desc_es}
-                      date={msg.date_of_completion}
-                      isSelected={selectedMessage && selectedMessage.record_id === msg.record_id}
-                      isUnread={msg.status < 3}
-                      onSelect={() => setSelectedMessage(msg)}
-                    />
-                  ))}
-                </Box>
-              );
-            })
-          ) : (
-            <Box ref={targetRef}>
-              <MessageCenterCarditemSkeleton />
-              <MessageCenterCarditemSkeleton />
-            </Box>
-          )}
-        </Box>
+
+        {!isFetching && messages.length > 0 ? (
+          Array.from(groupedMessages).map(([dateKey, messages], idx) => {
+            return (
+              <Box key={dateKey} sx={{ my: 1 }}>
+                <Typography variant="body2" color="text.primary" sx={{ ml: 1, mb: 1 }}>
+                  {dateKey}
+                </Typography>
+                {messages.map((msg) => (
+                  <MessageCenterCardItem
+                    key={msg.record_id}
+                    reviewer={msg.reviewer_person}
+                    message={msg.message_es}
+                    desc={msg.desc_es}
+                    date={msg.date_of_completion}
+                    isSelected={selectedMessage && selectedMessage.record_id === msg.record_id}
+                    isUnread={msg.status < 3}
+                    onSelect={() => setSelectedMessage(msg)}
+                  />
+                ))}
+              </Box>
+            );
+          })
+        ) : (
+          <Box ref={targetRef} sx={isFetching && !messages.length ? { mt: 2 } : null}>
+            <MessageCenterCarditemSkeleton />
+            <MessageCenterCarditemSkeleton />
+          </Box>
+        )}
       </Box>
       <Box
         sx={{

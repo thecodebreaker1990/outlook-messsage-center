@@ -3,7 +3,7 @@ import Roboto from '../fonts/Roboto/Roboto-Regular.ttf';
 
 let theme = createTheme({
   typography: {
-    fontSize: 14, // This sets the base font size to 10px
+    fontSize: 12, // This sets the base font size to 10px
     // You can also customize other typography properties here
     fontFamily: 'Roboto, sans-serif'
   },
