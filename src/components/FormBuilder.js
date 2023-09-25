@@ -22,20 +22,9 @@ const fieldComponents = {
 
 const FormBuilder = ({ inputFields, initialValues, successCallback, cancelCallback }) => {
   const [formValues, setFormValues] = useState({});
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
 
   const { t } = useTranslation();
-
-  const validate = (field, value) => {
-    let error = '';
-    if (field.required && !value.trim()) {
-      error = `${field.label} is required`;
-    }
-    setErrors({
-      ...errors,
-      [field.id]: error
-    });
-  };
 
   useEffect(() => {
     if (initialValues) {

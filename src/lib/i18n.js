@@ -12,7 +12,8 @@ const resources = {
       Save: 'Save',
       Cancel: 'Cancel',
       Reset: 'Reset',
-      FormSavedMessage: 'Form Saved successfully'
+      FormSavedMessage: 'Form Saved successfully',
+      Search: 'Search'
       // Add more key-value pairs for translation
     }
   },
@@ -25,7 +26,8 @@ const resources = {
       Save: 'Ahorrar',
       Cancel: 'Cancelar',
       Reset: 'Reiniciar',
-      FormSavedMessage: 'Formulario guardado exitosamente'
+      FormSavedMessage: 'Formulario guardado exitosamente',
+      Search:'Search'
       // Add more key-value pairs for translation
     }
   }

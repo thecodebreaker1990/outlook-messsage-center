@@ -7,6 +7,7 @@ import MessageCenterCardDetails from './MessageCenterCardDetails';
 import MessageCenterCarditemSkeleton from './MessageCenterCarditemSkeleton';
 import MessageCenterCardDetailsSkeleton from './MessageCenterCarditemDetailsSkeleton';
 
+import { useLanguage } from '../providers/languageProvider';
 import { sortRecrodsByDate, groupRecordsByDate } from '../utils/dateTimeFunctions';
 import { sleep } from '../utils/others';
 
@@ -32,6 +33,7 @@ function MessageCenter() {
   const [selectedMessage, setSelectedMessage] = useState(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
+  const { language } = useLanguage();
 
   const targetRef = useRef(null);
 
@@ -107,6 +109,9 @@ function MessageCenter() {
 
   const groupedMessages = groupRecordsByDate(messages, 'date_of_reminder');
 
+  const singleNotificationMessageKey = language === 'en' ? 'message_en' : 'message_es';
+  const singleNotificationDescriptionKey = language === 'en' ? 'desc_en' : 'desc_es';
+
   return (
     <Box
       sx={{
@@ -146,8 +151,8 @@ function MessageCenter() {
                   <MessageCenterCardItem
                     key={msg.record_id}
                     reviewer={msg.reviewer_person}
-                    message={msg.message_es}
-                    desc={msg.desc_es}
+                    message={msg[singleNotificationMessageKey]}
+                    desc={msg[singleNotificationDescriptionKey]}
                     date={msg.date_of_completion}
                     isSelected={selectedMessage && selectedMessage.record_id === msg.record_id}
                     isUnread={msg.status < 3}

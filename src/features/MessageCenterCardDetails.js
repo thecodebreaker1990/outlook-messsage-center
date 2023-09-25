@@ -1,11 +1,13 @@
 import { useState, Fragment } from 'react';
 import { Box, Button, Typography, Avatar } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
+import { useLanguage } from '../providers/languageProvider';
 
 import FormDrawer from '../components/FormDrawer';
 
 function MessageCenterCardDetails({ selectedMessage }) {
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const { language } = useLanguage();
   if (!selectedMessage) {
     return <Typography>No message selected</Typography>;
   }
@@ -171,6 +173,9 @@ function MessageCenterCardDetails({ selectedMessage }) {
     return formFieldInfo;
   });
 
+  const singleNotificationMessageKey = language === 'en' ? 'message_en' : 'message_es';
+  const singleNotificationDescriptionKey = language === 'en' ? 'desc_en' : 'desc_es';
+
   return (
     <Fragment>
       <Box
@@ -182,7 +187,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
           p: 2
         }}
       >
-        <Typography variant="h4">{selectedMessage.message_es}</Typography>
+        <Typography variant="h4">{selectedMessage[singleNotificationMessageKey]}</Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
           <Avatar sx={{ bgcolor: deepPurple[500], width: 24, height: 24 }}>U</Avatar>
           <Box sx={{ ml: 1 }}>
@@ -197,7 +202,9 @@ function MessageCenterCardDetails({ selectedMessage }) {
         </Box>
         <Box sx={{ display: 'flex', border: '1px solid #ccc', p: 3 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="body1">{selectedMessage.desc_es}</Typography>
+            <Typography variant="body1">
+              {selectedMessage[singleNotificationDescriptionKey]}
+            </Typography>
 
             <Typography variant="body2" sx={{ my: 1 }}>
               <span style={{ fontWeight: 'bold' }}>GRUPO ZLIPERS.</span>
