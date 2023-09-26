@@ -73,11 +73,12 @@ function LayoutHeader() {
         autoComplete="off"
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={t('Search')}
+        sx={{ width: '30%', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)' }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <IconButton>
-                <SearchIcon />
+              <IconButton sx={{ padding: '10px', cursor: 'text' }}>
+                <SearchIcon sx={{ color: 'rgba(0, 0, 0, 0.5)' }} />
               </IconButton>
             </InputAdornment>
           )

@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { Button, Badge } from '@mui/material';
+import { Button, Badge, Tooltip } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import ChatIcon from '@mui/icons-material/Chat';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
@@ -30,18 +30,26 @@ function TheLayoutNavbar() {
           justifyContent: 'center'
         }}
       >
-        <HomeIcon sx={{ color: '#fff' }} />
+        <Tooltip title="Home">
+          <HomeIcon sx={{ color: '#fff' }} />
+        </Tooltip>
       </Box>
       <Button variant="text" sx={{ width: '100%', my: 1.5 }}>
-        <Badge badgeContent={4} color="error">
-          <ChatIcon sx={{ color: '#fff' }} />
-        </Badge>
+        <Tooltip title="Chats">
+          <Badge badgeContent={4} color="error">
+            <ChatIcon sx={{ color: '#fff' }} />
+          </Badge>
+        </Tooltip>
       </Button>
       <Button variant="text" sx={{ width: '100%', my: 1.5 }}>
-        <CameraAltIcon sx={{ color: '#fff' }} />
+        <Tooltip title="Camera">
+          <CameraAltIcon sx={{ color: '#fff' }} />
+        </Tooltip>
       </Button>
       <Button variant="text" sx={{ width: '100%', my: 1.5 }}>
-        <CloudUploadIcon sx={{ color: '#fff' }} />
+        <Tooltip title="Upload to Cloud">
+          <CloudUploadIcon sx={{ color: '#fff' }} />
+        </Tooltip>
       </Button>
     </Box>
   );
