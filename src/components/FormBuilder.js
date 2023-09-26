@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Button, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-import {
-  InputTextField,
-  InputTextAreaField,
-  InputSelectField,
-  InputRadioGroup,
-  InputDateField,
-  InputSignatureField
-} from './Input';
+// Lazy load the Input component
+const InputTextField = lazy(() => import('./Input/InputTextField'));
+const InputTextAreaField = lazy(() => import('./Input/InputTextAreaField'));
+const InputSelectField = lazy(() => import('./Input/InputSelectField'));
+const InputRadioGroup = lazy(() => import('./Input/InputRadioGroup'));
+const InputDateField = lazy(() => import('./Input/InputDateField'));
+const InputSignatureField = lazy(() => import('./Input/InputSignatureField'));
 
 const fieldComponents = {
   text: InputTextField,
@@ -76,14 +75,15 @@ const FormBuilder = ({ inputFields, initialValues, successCallback, cancelCallba
       {inputFields.map((field, index) => {
         const FieldComponent = fieldComponents[field.type];
         return FieldComponent ? (
-          <FieldComponent
-            key={field.id}
-            field={field}
-            value={formValues[field.id] || defaultFieldValue(field.type)}
-            error={errors[field.id]}
-            sx={index > 0 ? { mt: 2 } : {}}
-            onChange={handleChange}
-          />
+          <Suspense key={field.id} fallback={<div>Loading...</div>}>
+            <FieldComponent
+              field={field}
+              value={formValues[field.id] || defaultFieldValue(field.type)}
+              error={errors[field.id]}
+              sx={index > 0 ? { mt: 2 } : {}}
+              onChange={handleChange}
+            />
+          </Suspense>
         ) : null;
       })}
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', mt: 2 }}>
