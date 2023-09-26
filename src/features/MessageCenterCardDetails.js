@@ -61,7 +61,7 @@ function MessageCenterCardDetails({ selectedMessage }) {
         form_code: 'EPP1',
         master_table_name: 'employee_epp_master',
         label_es: 'Comprobación',
-        label_en: 'Comprobación',
+        label_en: 'Verification',
         control_type: 'dropdown',
         option_type: 'custom',
         options: 'Correcta,Erronea,Verificar,Prueba',
@@ -155,7 +155,9 @@ function MessageCenterCardDetails({ selectedMessage }) {
   };
 
   const updatedFormFields = getFormFields().map((field) => {
-    const { id, label_es: label, control_type: type, is_require: required, options } = field;
+    // Use the language state to select either English or Spanish label
+    const labelKey = language === 'en' ? 'label_en' : 'label_es';
+    const { id, [labelKey]: label, control_type: type, is_require: required, options } = field;
 
     let formFieldInfo = {
       id,
