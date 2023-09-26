@@ -73,7 +73,13 @@ function LayoutHeader() {
         autoComplete="off"
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={t('Search')}
-        sx={{ width: '30%', borderRadius: '5px', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)' }}
+        sx={{
+          width: '30%',
+          borderRadius: '5px',
+          '&:hover': {
+            boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'
+          }
+        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
