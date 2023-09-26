@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
@@ -7,11 +7,13 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { Snackbar, Alert as MuiAlert } from '@mui/material';
-import FormBuilder from './FormBuilder';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
+
+// Lazy load the FormBuilder component
+const FormBuilder = lazy(() => import('./FormBuilder'));
 
 export default function FormDrawer({ open, handleClose, ...formBuilderProps }) {
   const [openAlert, setOpenAlert] = useState(false);
@@ -55,14 +57,17 @@ export default function FormDrawer({ open, handleClose, ...formBuilderProps }) {
           </Toolbar>
         </AppBar>
         <div style={{ padding: '16px' }}>
-          <FormBuilder
-            {...formBuilderProps}
-            successCallback={() => {
-              handleClose();
-              showAlert();
-            }}
-            cancelCallback={handleClose}
-          />
+          {/* Use Suspense to handle the loading state of the component */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <FormBuilder
+              {...formBuilderProps}
+              successCallback={() => {
+                handleClose();
+                showAlert();
+              }}
+              cancelCallback={handleClose}
+            />
+          </Suspense>
         </div>
       </Drawer>
       <Snackbar open={openAlert} autoHideDuration={6000} onClose={hideAlert}>
